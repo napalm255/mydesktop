@@ -1,0 +1,3 @@
+class { 'mydesktop' :
+  user => 'napalm',
+}
