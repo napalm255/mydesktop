@@ -84,8 +84,15 @@ class mydesktop::repos {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    source  => 'puppet:///modules/mydesktop/wemux.conf',
+    content => template('mydesktop/wemux.conf.erb'),
+    #source => 'puppet:///modules/mydesktop/wemux.conf',
     require => Vcsrepo['/opt/git/wemux'],
   }
-
+  # setup tmp directory
+  file { '/tmp/wemux/' :
+    ensure => directory,
+    owner  => $user,
+    group  => $user,
+    mode   => '1777',
+  }
 }
