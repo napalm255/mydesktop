@@ -69,5 +69,14 @@ class mydesktop::repos {
     target  => '/opt/git/wemux',
     require => Vcsrepo['/opt/git/wemux'],
   }
+  # setup wemux.conf
+  file { '/usr/local/etc/wemux.conf' :
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    source  => 'puppet:///modules/mydesktop/wemux.conf',
+    require => Vcsrepo['/opt/git/wemux'],
+  }
 
 }
