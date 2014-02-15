@@ -49,4 +49,16 @@ class mydesktop::repos {
     require => Vcsrepo['/opt/git/profile'],
   }
 
+  #
+  # wemux
+  #
+  # git webmux
+  vcsrepo { '/usr/local/share/wemux' :
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/zolrath/wemux.git',
+    user     => 'root',
+    require  => File['/opt/git'],
+  }
+
 }
