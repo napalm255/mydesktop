@@ -53,12 +53,21 @@ class mydesktop::repos {
   # wemux
   #
   # git webmux
-  vcsrepo { '/usr/local/share/wemux' :
+  vcsrepo { '/opt/git/wemux' :
     ensure   => present,
     provider => git,
     source   => 'https://github.com/zolrath/wemux.git',
     user     => 'root',
     require  => File['/opt/git'],
+  }
+  # link /usr/local/share/wemux
+  file { '/usr/local/share/wemux' :
+    ensure  => link,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    target  => '/opt/git/wemux',
+    require => Vcsrepo['/opt/git/wemux'],
   }
 
 }
