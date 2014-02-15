@@ -91,8 +91,8 @@ class mydesktop::repos {
   # setup tmp directory
   file { '/tmp/wemux/' :
     ensure => directory,
-    owner  => $mydesktop::user,
-    group  => $mydesktop::user,
+    owner  => 'root',
+    group  => 'root',
     mode   => '1777',
   }
 }
