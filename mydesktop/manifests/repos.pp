@@ -69,6 +69,15 @@ class mydesktop::repos {
     target  => '/opt/git/wemux',
     require => Vcsrepo['/opt/git/wemux'],
   }
+  # link /usr/local/bin/wemux
+  file { '/usr/local/bin/wemux' :
+    ensure  => link,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    target  => '/usr/local/share/wemux/wemux',
+    require => File['/usr/local/share/wemux'],
+  }
   # setup wemux.conf
   file { '/usr/local/etc/wemux.conf' :
     ensure  => file,
