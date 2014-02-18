@@ -66,10 +66,4 @@ class mydesktop::vim {
     user     => $mydesktop::user,
   }
 
-  vcsrepo { "/home/${mydesktop::user}/.vim/bundle/colorschemes" :
-    ensure   => present,
-    provider => git,
-    source   => 'https://github.com/flazz/vim-colorschemes.git',
-    user     => $mydesktop::user,
-  }
 }

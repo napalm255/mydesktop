@@ -10,7 +10,7 @@ class mydesktop::repos {
   #
   # tmux
   #
-  # git tmux.conf
+  # git mydesktop.tmux.conf
   vcsrepo { '/opt/git/tmux' :
     ensure   => present,
     provider => git,
@@ -24,14 +24,14 @@ class mydesktop::repos {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    target  => '/opt/git/tmux/tmux.conf',
+    target  => '/opt/git/tmux/mydesktop.tmux.conf',
     require => Vcsrepo['/opt/git/tmux'],
   }
 
   #
   # zdesktop aka bashrc
   #
-  # git zdesktop.sh
+  # git mydesktop.profile.sh
   vcsrepo { '/opt/git/profile' :
     ensure   => present,
     provider => git,
@@ -39,13 +39,13 @@ class mydesktop::repos {
     user     => 'root',
     require  => File['/opt/git'],
   }
-  # link profile.d/zdesktop.sh
-  file { '/etc/profile.d/zdesktop.sh' :
+  # link profile.d/mydesktop.profile.sh
+  file { '/etc/profile.d/mydesktop.profile.sh' :
     ensure  => link,
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    target  => '/opt/git/profile/zdesktop.sh',
+    target  => '/opt/git/profile/mydesktop.profile.sh',
     require => Vcsrepo['/opt/git/profile'],
   }
 
@@ -94,5 +94,17 @@ class mydesktop::repos {
     owner  => 'root',
     group  => 'root',
     mode   => '1777',
+  }
+
+  #
+  # powerline
+  #
+  # git powerline
+  vcsrepo { '/opt/git/powerline' :
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/Lokaltog/powerline.git',
+    user     => 'root',
+    require  => File['/opt/git'],
   }
 }
