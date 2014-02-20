@@ -4,7 +4,7 @@ node gibsonb-desk {
   }
 }
 
-node x55c {
+node x55c-localdomain {
   class { 'mydesktop' :
     user => 'napalm',
   }
