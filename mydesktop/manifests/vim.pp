@@ -66,4 +66,11 @@ class mydesktop::vim {
     user     => $mydesktop::user,
   }
 
+  vcsrepo { "/home/${mydesktop::user}/.vim/bundle/vim-airline" :
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/bling/vim-airline.git',
+    user     => $mydesktop::user,
+  }
+
 }
