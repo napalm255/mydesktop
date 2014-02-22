@@ -1,6 +1,6 @@
 class mydesktop::system () {
 
-  $tools_cli = [ 'git', 'puppet', 'htop', 'nmap', 'lynx', 'wget', 'whois', 'ipcalculator', 'figlet', 'telnet', 'traceroute', 'samba-client', 'samba-common', 'autofs', 'putty', 'tmux', 'vim-enhanced', 'python-pip' ]
+  $tools_cli = [ 'git', 'puppet', 'htop', 'nmap', 'lynx', 'wget', 'whois', 'ipcalculator', 'figlet', 'telnet', 'traceroute', 'samba-client', 'samba-common', 'autofs', 'putty', 'tmux', 'vim-enhanced', 'python-pip', 'iperf3' ]
   $tools_gui = [ 'xpad', 'gnome-tweak-tool', 'gimp' ]
   $tools_ssh = [ 'openssh', 'openssh-server', 'openssh-clients' ]
   $tools_dev = [ 'kernel-headers', 'kernel-devel', 'gcc', 'binutils', 'make', 'patch', 'libgomp', 'glibc-headers', 'glibc-devel', 'dkms' ]

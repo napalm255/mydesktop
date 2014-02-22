@@ -78,5 +78,6 @@ class mydesktop::vim {
     provider => git,
     source   => 'https://github.com/scrooloose/nerdtree.git',
     user     => $mydesktop::user,
+  }
 
 }
