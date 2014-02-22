@@ -73,4 +73,10 @@ class mydesktop::vim {
     user     => $mydesktop::user,
   }
 
+  vcsrepo { "/home/${mydesktop::user}/.vim/bundle/nerdtree" :
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/scrooloose/nerdtree.git',
+    user     => $mydesktop::user,
+
 }
