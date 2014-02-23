@@ -21,6 +21,12 @@ class mydesktop::system () {
     ensure => latest,
   }
 
+  # anti-virus
+  package { 'clamav':
+    ensure => latest,
+  }
+
+
   service { 'sshd' :
     ensure  => running,
     enable  => true,
