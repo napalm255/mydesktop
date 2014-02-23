@@ -85,6 +85,7 @@ class mydesktop::system () {
   }
 
   cron { 'freshclam' :
+    ensure  => present,
     command => '/usr/bin/freshclam',
     user    => 'root',
     hour    => 22,
@@ -92,6 +93,7 @@ class mydesktop::system () {
   }
 
   cron { 'yum-update' :
+    ensure  => present,
     command => 'yum -y update',
     user    => 'root',
     hour    => 8,
