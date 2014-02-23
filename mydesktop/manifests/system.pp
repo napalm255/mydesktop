@@ -4,7 +4,7 @@ class mydesktop::system () {
   $tools_gui = [ 'xpad', 'gnome-tweak-tool', 'gimp', 'geany', 'bluefish' ]
   $tools_ssh = [ 'openssh', 'openssh-server', 'openssh-clients' ]
   $tools_dev = [ 'kernel-headers', 'kernel-devel', 'gcc', 'binutils', 'make', 'patch', 'libgomp', 'glibc-headers', 'glibc-devel', 'dkms' ]
-  $tools_av  = [ 'clamav', 'clamav-updates' ]
+  $tools_av  = [ 'clamav', 'clamav-update' ]
 
   package { $tools_cli :
     ensure => latest,
