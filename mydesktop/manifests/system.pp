@@ -84,11 +84,17 @@ class mydesktop::system () {
     require   => [ Exec['vboxdrv'], ],
   }
 
+  cron { 'freshclam' :
+    command => '/usr/bin/freshclam',
+    user    => 'root',
+    hour    => 22,
+    minute  => 0,
+  }
+
   cron { 'yum-update' :
     command => 'yum -y update',
     user    => 'root',
     hour    => 8,
     minute  => 0,
-    weekday => [2, 4],
   }
 }
