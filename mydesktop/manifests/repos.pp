@@ -104,4 +104,13 @@ class mydesktop::repos {
     user     => 'root',
     require  => File['/opt/git'],
   }
+
+  # powerline fonts
+  vcsrepo { '/opt/git/powerline-fonts' :
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/Lokaltog/powerline-fonts.git',
+    user     => 'root',
+    require  => File['/opt/git'],
+  }
 }
