@@ -96,15 +96,12 @@ class mydesktop::repos {
     mode   => '1777',
   }
 
-  #
   # powerline
-  #
-  # git powerline
-  #vcsrepo { '/opt/git/powerline' :
-  #  ensure   => present,
-  #  provider => git,
-  #  source   => 'https://github.com/Lokaltog/powerline.git',
-  #  user     => 'root',
-  #  require  => File['/opt/git'],
-  #}
+  vcsrepo { '/opt/git/powerline' :
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/Lokaltog/powerline.git',
+    user     => 'root',
+    require  => File['/opt/git'],
+  }
 }
