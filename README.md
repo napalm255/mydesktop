@@ -1,3 +1,3 @@
-# mydesktop puppetized
+### my standard desktop configuration
 
-time \curl -L https://gist.githubusercontent.com/napalm255/8995963/raw/mydesktop.bootloader.sh | bash
+designed for fedora
