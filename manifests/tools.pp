@@ -10,21 +10,6 @@ class mydesktop::tools {
     ensure  => directory,
   }
 
-  # tmux
-  vcsrepo { '/opt/git/tmux' :
-    ensure   => present,
-    provider => git,
-    source   => 'https://gist.github.com/8810252.git',
-    user     => 'root',
-    require  => File['/opt/git'],
-  }
-  # link tmux.conf
-  file { '/etc/tmux.conf' :
-    ensure  => link,
-    target  => '/opt/git/tmux/mydesktop.tmux.conf',
-    require => Vcsrepo['/opt/git/tmux'],
-  }
-
   # zdesktop aka bashrc
   vcsrepo { '/opt/git/profile' :
     ensure   => present,
@@ -38,6 +23,21 @@ class mydesktop::tools {
     ensure  => link,
     target  => '/opt/git/profile/mydesktop.profile.sh',
     require => Vcsrepo['/opt/git/profile'],
+  }
+
+  # powertmux
+  vcsrepo { '/opt/git/powertmux' :
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/napalm255/powertmux.git',
+    user     => 'root',
+    require  => File['/opt/git'],
+  }
+  # link tmux.conf
+  file { '/etc/tmux.conf' :
+    ensure  => link,
+    target  => '/opt/git/powertmux/tmux.conf',
+    require => Vcsrepo['/opt/git/tmux'],
   }
 
   # powerbash

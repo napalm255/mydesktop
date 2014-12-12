@@ -20,31 +20,11 @@ class mydesktop::system () {
     require => Yumrepo['google-chrome'],
   }
 
-  # virtualbox
-  package { 'virtualbox':
-    name    => 'VirtualBox-4.3',
-    ensure  => latest,
-    require => Yumrepo['virtualbox'],
-  }
-
   # ssh - enable and start
   service { 'sshd' :
     ensure  => running,
     enable  => true,
     require => Package['openssh-server'],
-  }
-
-  # setup virtualbox
-  exec { 'vboxdrv':
-    command => '/etc/init.d/vboxdrv setup',
-    user    => 'root',
-    unless  => '/etc/init.d/vboxdrv status',
-  }
-
-  service { 'vboxdrv' :
-    ensure    => running,
-    enable    => true,
-    require   => [ Exec['vboxdrv'], ],
   }
 
   # yum repos
@@ -64,15 +44,6 @@ class mydesktop::system () {
     enabled  => 1,
     gpgcheck => 1,
     gpgkey   => 'https://dl-ssl.google.com/linux/linux_signing_key.pub',
-  }
-
-  yumrepo { 'virtualbox' :
-    name     => 'virtualbox',
-    descr    => 'Fedora $releasever - $basearch - VirtualBox',
-    enabled  => 1,
-    baseurl  => 'http://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch',
-    gpgcheck => 1,
-    gpgkey   => 'http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc',
   }
 
 }
