@@ -37,7 +37,7 @@ class mydesktop::tools {
   file { '/etc/tmux.conf' :
     ensure  => link,
     target  => '/opt/git/powertmux/tmux.conf',
-    require => Vcsrepo['/opt/git/tmux'],
+    require => Vcsrepo['/opt/git/powertmux'],
   }
 
   # powerbash
